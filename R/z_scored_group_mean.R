@@ -1,0 +1,22 @@
+#' Z scored with with respect to the group mean
+#'
+#' Z-scored that uses the group mean in the z-score formula
+#' @param data dataframe
+#' @param cols vector or quos(). column(s) that need to be centered
+#' @param group the grouping variable. If you need to pass multiple group variables, try to use quos(). Passing multiple group variables is not tested.
+#'
+#' @return
+#' return a dataframe with the columns z-scored (replace existing columns)
+#' @export
+#'
+#' @examples
+#' z_scored_group_mean(data, cols = quos('IV1':'IV2'), group = 'Country')
+#'
+z_scored_group_mean = function(data, cols, group) {
+  return_df = data %>%
+    group_by(across(!!!group)) %>%
+    mutate(across(!!!cols, function(x) { (x - mean(x,na.rm = T))/sd(x,na.rm = T)})) %>%
+    ungroup()
+  return(return_df)
+}
+
