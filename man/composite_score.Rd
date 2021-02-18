@@ -19,3 +19,6 @@ return a dataframe with a new column with the composite score
 \description{
 The function will perform a rowise aggregation which then divided by the total number of columns. It ignores rows with any NA value.
 }
+\examples{
+
+}

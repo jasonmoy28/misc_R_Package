@@ -17,3 +17,6 @@ retrun a dataframe with the columns z-scored (replace existing columns)
 \description{
 Z-scored that uses the grand mean in the z-score formula
 }
+\examples{
+
+}

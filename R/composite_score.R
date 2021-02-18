@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#'
 composite_score = function(data, cols, composite_col_name = 'composited_column'){
   # get the number of columns
   ncols = data %>% select(!!!cols) %>% ncol()

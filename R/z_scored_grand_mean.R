@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @examples
+#'
 z_scored_grand_mean = function(data, cols) {
   return_df = data %>%
     mutate(across(!!!cols, function(x) { (x - mean(x,na.rm = T))/sd(x,na.rm = T)}))

@@ -21,3 +21,6 @@ recode_item(data, cols, code_from, code_to)
 \description{
 Recode
 }
+\examples{
+
+}
