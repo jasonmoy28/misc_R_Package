@@ -4,7 +4,7 @@
 \alias{summarize_missing_values}
 \title{Count the number of missing / NA values}
 \usage{
-summarize_missing_values(data, cols, group = NULL)
+summarize_missing_values(data, cols, group = NULL, print = F)
 }
 \arguments{
 \item{data}{dataframe}

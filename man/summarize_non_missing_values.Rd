@@ -4,7 +4,7 @@
 \alias{summarize_non_missing_values}
 \title{Count number of non-missing / non-NA values}
 \usage{
-summarize_non_missing_values(data, cols, group = NULL)
+summarize_non_missing_values(data, cols, group = NULL, print = F)
 }
 \arguments{
 \item{data}{dataframe}
