@@ -4,7 +4,14 @@
 \alias{recode_item}
 \title{Recode}
 \usage{
-recode_item(data, cols, code_from, code_to)
+recode_item(
+  data,
+  cols,
+  reverse_code = F,
+  code_as_NA = NULL,
+  code_from = NULL,
+  code_to = NULL
+)
 }
 \arguments{
 \item{data}{a dataframe}
