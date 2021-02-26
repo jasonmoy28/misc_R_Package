@@ -12,6 +12,8 @@ summarize_missing_values(data, cols, group = NULL, print = F)
 \item{cols}{vector or quos(). column(s) that need to be centered}
 
 \item{group}{character. pass to group_by}
+
+\item{print}{return the original data, and print the summary}
 }
 \value{
 return a dataframe with the number of NA values
@@ -20,6 +22,5 @@ return a dataframe with the number of NA values
 Center all columns with respect to the grand mean
 }
 \examples{
-center_group_mean(data = df1, cols = quos('IV1:IV5'))
 
 }

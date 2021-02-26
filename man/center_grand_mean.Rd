@@ -18,6 +18,5 @@ return a dataframe with the columns centered (replace existing columns)
 Center all columns with respect to the grand mean
 }
 \examples{
-center_group_mean(data = df1, cols = quos('IV1:IV5'))
 
 }

@@ -4,6 +4,8 @@
 #' @param cols vector or quos(). column(s) that need to be recoded
 #' @param code_from vector. the order must match with vector for code_to
 #' @param code_to vector. the order must match with vector for code_from
+#' @param reverse_code logical. Default as F. If T, it will use psych::reverse_code
+#' @param code_as_NA vector of values should be coded as NA in the columns. Default as NULL.
 #'
 #' @return
 #' @export
@@ -18,17 +20,16 @@ recode_item <- function(data,
                         code_to = NULL) {
 
   data = data %>%
-    select(!!!cols) %>%
-    mutate(across(!!!cols, as.numeric)) %>%
+    dplyr::mutate(dplyr::across(!!!cols, as.numeric))
 
   if (reverse_code == T) {
     return_df = data %>%
-      mutate(across(!!!cols, ~ if_else(. %in% code_as_NA, NA_real_, .))) %>%
-      mutate(across(!!!cols, ~ psych::reverse.code(-1,.)))
+      dplyr::mutate(dplyr::across(!!!cols, ~ dplyr::if_else(. %in% code_as_NA, NA_real_, .))) %>%
+      dplyr::mutate(dplyr::across(!!!cols, ~ psych::reverse.code(-1,.)))
   } else if (!is.null(code_from)){
     # need to try to code it in a more generalizable way
     return_df = data %>%
-      mutate(across(!!!cols, ~ case_when(
+      dplyr::mutate(dplyr::across(!!!cols, ~ dplyr::case_when(
         . == code_from[1] ~ code_to[1],
         . == code_from[2] ~ code_to[2],
         . == code_from[3] ~ code_to[3],
@@ -41,8 +42,8 @@ recode_item <- function(data,
       )))
   } else{
     return_df = data %>%
-      mutate(across(!!!cols, ~ if_else(. %in% code_as_NA, NA_real_, .)))
+      dplyr::mutate(dplyr::across(!!!cols, ~ dplyr::if_else(. %in% code_as_NA, NA_real_, .)))
   }
-  return_df = return_df %>% data.table::as.data.table() %>% as_tibble()
+  return_df = return_df %>% data.table::as.data.table() %>% tibble::as_tibble()
   return(return_df)
 }

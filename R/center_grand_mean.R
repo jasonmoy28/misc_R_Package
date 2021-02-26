@@ -9,10 +9,9 @@
 #' @export
 #'
 #' @examples
-#' center_group_mean(data = df1, cols = quos('IV1:IV5'))
 #'
 center_grand_mean = function(data, cols) {
   return_df = data %>%
-    mutate(across(!!!cols, function(x) { (x - mean(x,na.rm = T))}))
+    dplyr::mutate(dplyr::across(!!!cols, function(x) { (x - mean(x,na.rm = T))}))
   return(return_df)
 }

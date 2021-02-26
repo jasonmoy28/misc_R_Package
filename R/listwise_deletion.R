@@ -14,6 +14,6 @@
 
 listwise_deletion = function(data, cols) {
   return_df = data %>%
-    filter(across(!!!cols, ~ !is.na(.)))
+    dplyr::filter(dplyr::across(!!!cols, ~ !is.na(.)))
   return(return_df)
 }

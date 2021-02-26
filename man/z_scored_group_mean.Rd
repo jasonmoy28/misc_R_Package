@@ -20,6 +20,5 @@ return a dataframe with the columns z-scored (replace existing columns)
 Z-scored that uses the group mean in the z-score formula
 }
 \examples{
-z_scored_group_mean(data, cols = quos('IV1':'IV2'), group = 'Country')
 
 }

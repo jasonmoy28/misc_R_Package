@@ -12,6 +12,6 @@
 #'
 z_scored_grand_mean = function(data, cols) {
   return_df = data %>%
-    mutate(across(!!!cols, function(x) { (x - mean(x,na.rm = T))/sd(x,na.rm = T)}))
+    dplyr::mutate(dplyr::across(!!!cols, function(x) { (x - mean(x,na.rm = T))/stats::sd(x,na.rm = T)}))
   return(return_df)
 }

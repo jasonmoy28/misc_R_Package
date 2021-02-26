@@ -10,13 +10,12 @@
 #' @export
 #'
 #' @examples
-#' z_scored_group_mean(data, cols = quos('IV1':'IV2'), group = 'Country')
 #'
 z_scored_group_mean = function(data, cols, group) {
   return_df = data %>%
-    group_by(across(!!!group)) %>%
-    mutate(across(!!!cols, function(x) { (x - mean(x,na.rm = T))/sd(x,na.rm = T)})) %>%
-    ungroup()
+    dplyr::group_by(dplyr::across(!!!group)) %>%
+    dplyr::mutate(dplyr::across(!!!cols, function(x) { (x - mean(x,na.rm = T))/stats::sd(x,na.rm = T)})) %>%
+    dplyr::ungroup()
   return(return_df)
 }
 

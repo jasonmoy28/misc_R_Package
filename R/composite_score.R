@@ -13,18 +13,18 @@
 #'
 composite_score = function(data, cols, composite_col_name = 'composited_column'){
   # get the number of columns
-  ncols = data %>% select(!!!cols) %>% ncol()
-  col_names = data %>% select(!!!cols) %>% names(.)
+  ncols = data %>% dplyr::select(!!!cols) %>% ncol()
+  col_names = data %>% dplyr::select(!!!cols) %>% names(.)
 
   df_NA = data %>%
-    filter(across(!!!cols, ~ is.na(.)))
+    dplyr::filter(dplyr::across(!!!cols, ~ is.na(.)))
 
   return_df = data %>%
-    filter(across(!!!cols, ~ !is.na(.))) %>%
-    mutate(sum = rowSums(across(!!!cols),na.rm = T)/ncols) %>%
-    bind_rows(df_NA)
+    dplyr::filter(dplyr::across(!!!cols, ~ !is.na(.))) %>%
+    dplyr::mutate(sum = rowSums(dplyr::across(!!!cols),na.rm = T)/ncols) %>%
+    dplyr::bind_rows(df_NA)
 
   return_df[composite_col_name] = return_df['sum']
-  return_df = return_df %>% select(-'sum')
+  return_df = return_df %>% dplyr::select(-'sum')
   return(return_df)
 }

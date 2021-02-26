@@ -7,11 +7,11 @@
 center_group_mean(data, cols, group)
 }
 \arguments{
+\item{data}{dataframe}
+
 \item{cols}{vector or quos(). column(s) that need to be centered}
 
 \item{group}{the grouping variable. If you need to pass multiple group variables, try to use quos(). Passing multiple group variables is not tested.}
-
-\item{dataframe}{dataframe}
 }
 \value{
 return a dataframe with the columns centered (replace existing columns)
@@ -20,5 +20,5 @@ return a dataframe with the columns centered (replace existing columns)
 Center all columns with respect to the group mean
 }
 \examples{
-center_group_mean(data = df1, cols = quos('IV1:IV5'), group = 'Country')
+
 }

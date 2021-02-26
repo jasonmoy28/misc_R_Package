@@ -8,6 +8,8 @@ render_all(dir, render_exist = T)
 }
 \arguments{
 \item{dir}{directory path}
+
+\item{render_exist}{render existed pdf files or not}
 }
 \value{
 
