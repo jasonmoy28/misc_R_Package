@@ -7,10 +7,10 @@
 recode_item(
   data,
   cols,
-  reverse_code = F,
-  code_as_NA = NULL,
   code_from = NULL,
-  code_to = NULL
+  code_to = NULL,
+  reverse_code = F,
+  code_as_NA = NULL
 )
 }
 \arguments{
@@ -18,13 +18,13 @@ recode_item(
 
 \item{cols}{vector or quos(). column(s) that need to be recoded}
 
-\item{reverse_code}{logical. Default as F. If T, it will use psych::reverse_code}
-
-\item{code_as_NA}{vector of values should be coded as NA in the columns. Default as NULL.}
-
 \item{code_from}{vector. the order must match with vector for code_to}
 
 \item{code_to}{vector. the order must match with vector for code_from}
+
+\item{reverse_code}{logical. Default as F. If T, it will use psych::reverse_code}
+
+\item{code_as_NA}{vector of values should be coded as NA in the columns. Default as NULL.}
 }
 \value{
 

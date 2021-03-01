@@ -14,10 +14,10 @@
 #'
 recode_item <- function(data,
                         cols,
-                        reverse_code = F,
-                        code_as_NA = NULL,
                         code_from = NULL,
-                        code_to = NULL) {
+                        code_to = NULL,
+                        reverse_code = F,
+                        code_as_NA = NULL) {
 
   data = data %>%
     dplyr::mutate(dplyr::across(!!!cols, as.numeric))
